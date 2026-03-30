@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Lightbox from '@/components/Lightbox';
 
 const sections = [
   { id: 'tormysh', path: '/tormysh', title: 'Тормыш юлы' },
-  { id: 'shakhsi', path: '/shakhsi', title: 'Шәхси тормышы' },
-  { id: 'sugыш', path: '/sugыsh', title: 'Сугыш юлы' },
-  { id: 'moabit', path: '/moabit', title: 'Моабит дәфтәрләре' },
-  { id: 'jalilcheler', path: '/jalilcheler', title: 'Җәлилчеләр' },
+  { id: 'shakhsi', path: '/shakhsi', title: 'Шəхси тормышы' },
+  { id: 'sugыш', path: '/sugыш', title: 'Сугыш юлы' },
+  { id: 'moabit', path: '/moabit', title: 'Моабит дəфтəрлəре' },
+  { id: 'jalilcheler', path: '/jalilcheler', title: 'Җəлилчелəр' },
+  { id: 'ijat', path: '/ijat', title: 'Иҗат' },
   { id: 'bugengekon', path: '/bugengekon', title: 'Бүгенге көн' },
 ];
 
@@ -17,21 +20,25 @@ const sectionTexts = [
     path: '/tormysh',
     title: 'Тормыш юлы',
     year: '1906–1941',
+    photo: 'https://cdn.poehali.dev/files/b0ba96ed-05d5-46df-9c72-33c6d36c9f78.jpg',
+    photoCaption: 'Муса Җəлил — шəкерт. 1916 ел',
     paragraphs: [
-      'Муса Җәлил 1906 елның 15 февралендә Ырынбур губернасының Мостафа авылында дөньяга килә. Алты яшендә әтисе аны авыл мәктәбенә бирә. Бу мәктәптә кечкенә Муса бер ел эчендә 4 еллык программаны үзләштерә.',
-      '1914 елда "Хөсәения" мәдрәсәсенә укырга керә. Габдулла Тукай шигырьләрен укып, ул беренче тапкыр әдәбиятны ача. Мәдрәсәдән соң Муса комсомол сафларына кушыла, шигырьләрен газеталарда бастыра башлый.',
-      '1927 елда Мәскәү дәүләт университетына укырга керә. Мәскәүдәге татар яшьләре арасында әдәби түгәрәк оештыра, Мәскәүдәге татар матбугатында мөхәррир булып эшли.',
+      'Муса Җəлил 1906 елның 15 февралендə Ырынбур губернасының Мостафа авылында дөньяга килə. Алты яшендə əтисе аны авыл мəктəбенə бирə. Бу мəктəптə кечкенə Муса бер ел эчендə 4 еллык программаны үзлəштерə.',
+      '1914 елда "Хөсəения" мəдрəсəсенə укырга керə. Габдулла Тукай шигырьлəрен укып, ул беренче тапкыр əдəбиятны ача. Мəдрəсəдəн соң Муса комсомол сафларына кушыла, шигырьлəрен газеталарда бастыра башлый.',
+      '1927 елда Мəскəү дəүлəт университетына укырга керə. Мəскəүдəге татар яшьлəре арасында əдəби түгəрəк оештыра, Мəскəүдəге татар матбугатында мөхəррир булып эшли.',
     ],
   },
   {
     id: 'shakhsi',
     path: '/shakhsi',
-    title: 'Шәхси тормышы',
-    year: 'Гаилә',
+    title: 'Шəхси тормышы',
+    year: 'Гаилə',
+    photo: 'https://cdn.poehali.dev/files/d68d78be-770b-4649-a285-81de771fc333.jpg',
+    photoCaption: 'Муса Җəлил хатыны Əминə белəн',
     paragraphs: [
-      'Муса Казанда яшәгән чорда Рахиля Сайфуллина белән таныша. Рахиля аның тормыш иптәше, терәге, иң якын кешесе булып кала. Аларның кызы Чулпан туа.',
-      'Фронтка китеп, Муса хатынына сагыну тулы хатлар яза. Моабит тоткынлыгыннан да ул гаиләсе турында уйлый — шигырьләрендә Чулпанга мөнәсәбәт сизелә.',
-      'Мусаның иң якын кешесе апасы Мәрьям була. Аңа ул 1915 елда ук бөек язучы булырга хыялланганы турында сөйли. Гаилә аның иҗатының нигезе, рухи таянычы.',
+      '1936 елның җəендə Муса Əминə Сəйфуллинага өйлəнə. 1937 елның апрелендə аларның кызы Чулпан туа.',
+      'Шагыйрь хатыны истəлеклəрендə: «Сугыш алдындагы алты елны без бик тату яшəдек. Кызыбыз Чулпан бик куандыра иде. Безнең бəхетнең чиге юк кебек тоелды».',
+      'Муса нечкə күңелле, сизгер иде. Ул шат күңелле, арымый-талмый көлəргə, шаяртырга ярата иде.',
     ],
   },
   {
@@ -39,68 +46,92 @@ const sectionTexts = [
     path: '/sugыш',
     title: 'Сугыш юлы',
     year: '1941–1942',
+    photo: null,
+    photoCaption: null,
     paragraphs: [
-      '1941 елда Бөек Ватан сугышы башлана. Муса Җәлил фронтка китә. Ул Волхов фронтында сугыша. 1942 елда авыр яраланганнан соң немецлар тарафыннан әсир алына.',
-      'Немецлар Мусаны Идел-Урал легионына кертергә тырышалар. Ләкин ул риваять буенча дошманга хезмәт итми. Гайнан Кормаш белән бергә яшерен оешма оештырырга тотына.',
+      '1941 елда Бөек Ватан сугышы башлана. Муса Җəлил фронтка китə. Ул Волхов фронтында сугыша. 1942 елда авыр яраланганнан соң немецлар тарафыннан əсир алына.',
+      'Немецлар Мусаны Идел-Урал легионына кертергə тырышалар. Лəкин ул риваять буенча дошманга хезмəт итми. Гайнан Кормаш белəн бергə яшерен оешма оештырырга тотына.',
       'Яшерен оешма тоткынлар арасында антифашист агитация алып бара, побег планлаштыра. 1943 елда оешма ачыкланып, барлык членнары кулга алына.',
     ],
   },
   {
     id: 'moabit',
     path: '/moabit',
-    title: 'Моабит дәфтәрләре',
+    title: 'Моабит дəфтəрлəре',
     year: '1942–1944',
+    photo: null,
+    photoCaption: null,
     paragraphs: [
-      'Берлиндагы Моабит төрмәсенә ябылып, Муса шигырь яза. Ул ике кечкенә дәфтәр тутыра — андагы 106 шигырь тоткынлык шартларында язылган. Бу шигырьләр — батырлык, мәхәббәт, ирек турында.',
-      'Дәфтәрләрне Муса тоткынлыкташ дусларына тапшыра. Алар сакларга сүз бирәләр. Сугыш беткәч, дәфтәрләр СССР-га кайтарыла.',
-      'Бу шигырьләр 1953 елда беренче тапкыр бастырыла. 1957 елда "Моабит дәфтәрләре" Ленин премиясенә лаек була. Бүгенге көндә бу — дөнья әдәбиятының алтын битләренең берсе.',
+      'Берлиндагы Моабит төрмəсенə ябылып, Муса шигырь яза. Ул ике кечкенə дəфтəр тутыра — андагы 106 шигырь тоткынлык шартларында язылган. Бу шигырьлəр — батырлык, мəхəббəт, ирек турында.',
+      'Дəфтəрлəрне Муса тоткынлыкташ дусларына тапшыра. Алар сакларга сүз бирəлəр. Сугыш беткəч, дəфтəрлəр СССР-га кайтарыла.',
+      'Бу шигырьлəр 1953 елда беренче тапкыр бастырыла. 1957 елда "Моабит дəфтəрлəре" Ленин премиясенə лаек була.',
     ],
   },
   {
     id: 'jalilcheler',
     path: '/jalilcheler',
-    title: 'Җәлилчеләр',
+    title: 'Җəлилчелəр',
     year: 'Батырлар',
+    photo: null,
+    photoCaption: null,
     paragraphs: [
-      'Муса Джалил белән бергә яшерен оешмага кергән 11 батыр 1944 елның 25 августында Плетцензее төрмәсендә (Берлин) гильотинада башкарыла.',
-      'Алар арасында язучы Абдулла Алиш, Гайнан Кормаш, Фуат Булатов, Ахмет Симаев, Зиннат Хасанов, Сәлим Бухаров, Хиса Солтанов, Фоат Сайфельмулюков, Галимҗан Бассиров, Мухаммад Джалялов бар.',
-      'Алар батырлык белән үлделәр, дошманга баш иймәделәр. Аларның данлы исемнәре татар халкының мәңгелек горурлыгы булып тора.',
+      'Муса Джалил белəн бергə яшерен оешмага кергəн 11 батыр 1944 елның 25 августында Плетцензее төрмəсендə (Берлин) гильотинада башкарыла.',
+      'Алар арасында язучы Абдулла Алиш, Гайнан Кормаш, Фуат Булатов, Ахмет Симаев həм башкалар бар.',
+      'Алар батырлык белəн үлделəр, дошманга баш иймəделəр. Аларның данлы исемнəре татар халкының мəңгелек горурлыгы булып тора.',
+    ],
+  },
+  {
+    id: 'ijat',
+    path: '/ijat',
+    title: 'Иҗат',
+    year: 'Шигырьлəр',
+    photo: 'https://cdn.poehali.dev/files/5de5d4b9-bd6b-4daf-8dc8-c6e52674ad7d.jpg',
+    photoCaption: 'Мəскəү университеты студенты. 1929 ел',
+    paragraphs: [
+      'Муса Җəлилнең иҗаты — татар поэзиясенең алтын бите. Ул 1910-нче еллардан башлап шигырьлəр язган, аның əсəрлəре газеталарда, журналларда чыккан.',
+      'Лирик шигырьлəр, балалар шигырьлəре, поэмалар, балладалар, опера либреттолары — аның иҗат мирасы байлыгы белəн гаҗəплəндерə.',
+      'Моабит тоткынлыгында язылган 106 шигырь — аның иң зур батырлык əсəре. Алар тоткынлык, ирек, мəхəббəт, үлем турында — тирəн лирик əсəрлəр.',
     ],
   },
   {
     id: 'bugengekon',
     path: '/bugengekon',
     title: 'Бүгенге көн',
-    year: 'Хәтер',
+    year: 'Хəтер',
+    photo: null,
+    photoCaption: null,
     paragraphs: [
-      'Муса Җәлил исеме бүгенге көндә дә татар халкының күңелендә яши. Аның шигырьләре мәктәпләрдә өйрәнелә, музейларда саклана, театрларда куела.',
-      'Казанда Муса Җәлилгә багышланган мемориаль музей эшли. Шагыйрьнең исемен йөртүче урамнар, мәктәпләр, мәдәни учреждениеләр Татарстанда гына түгел, бөтен дөньяда таралган.',
-      'Моабит дәфтәрләре бүгенге көндә дә укучыларны тетрәтә. Аның батырлыгы — киләчәк буыннар өчен рухи мирас.',
+      'Муса Җəлил исеме бүгенге көндə дə татар халкының күңелендə яши. Аның шигырьлəре мəктəплəрдə өйрəнелə, музейларда саклана, театрларда куела.',
+      'Казанда Муса Җəлилгə багышланган мемориаль музей эшли. Казан Кремлендə 1966 елда ачылган гранит həйкəл куелган.',
+      'Татарстан Республикасы Муса Җəлил исемендəге Дəүлəт опера həм балет театры — бүгенге Казанның бизəге.',
     ],
   },
 ];
 
 export default function Index() {
   const navigate = useNavigate();
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
+      {lightbox && (
+        <Lightbox src={lightbox.src} caption={lightbox.caption} onClose={() => setLightbox(null)} />
+      )}
+
       {/* ── HERO ── */}
       <section className="pt-32 pb-20 px-6 md:px-16 lg:px-24">
         <div className="max-w-screen-xl mx-auto">
-          {/* Portrait */}
           <div className="flex justify-center mb-10">
             <div className="portrait-circle">
               <img
                 src="https://cdn.poehali.dev/files/c42d3da8-7051-4d10-965d-585ff996f7a1.jpeg"
-                alt="Муса Җәлил"
+                alt="Муса Җəлил"
               />
             </div>
           </div>
 
-          {/* Subtitle */}
           <div className="text-center mb-4">
             <span style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -113,7 +144,6 @@ export default function Index() {
             }}>ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:</span>
           </div>
 
-          {/* Name — fits 1 line via viewport-based clamp */}
           <h1
             className="text-center font-black text-gray-900 leading-none mb-4"
             style={{
@@ -123,10 +153,9 @@ export default function Index() {
               whiteSpace: 'nowrap',
             }}
           >
-            МУСА ҖӘЛИЛ
+            МУСА ҖƏЛИЛ
           </h1>
 
-          {/* Years */}
           <div className="flex items-center justify-center gap-4 mb-16">
             <span className="divider-muted block" />
             <span style={{
@@ -140,7 +169,6 @@ export default function Index() {
             <span className="divider-muted block" />
           </div>
 
-          {/* Quote */}
           <div className="max-w-2xl mx-auto text-center" style={{ padding: '32px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
             <p style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -154,7 +182,7 @@ export default function Index() {
               marginBottom: '16px',
             }}>
               Гомерем минем моңлы бер җыр иде,<br />
-              Үлемем дә яңрар җыр булып...
+              Үлемем дə яңрар җыр булып...
             </p>
             <span style={{
               fontFamily: 'Montserrat, sans-serif',
@@ -163,7 +191,7 @@ export default function Index() {
               letterSpacing: '0.25em',
               textTransform: 'uppercase',
               color: 'var(--ink-muted)',
-            }}>— Муса Җәлил</span>
+            }}>— Муса Җəлил</span>
           </div>
         </div>
       </section>
@@ -171,7 +199,7 @@ export default function Index() {
       {/* ── SECTION NAV ── */}
       <section className="px-6 md:px-16 lg:px-24 pb-4" style={{ borderTop: '1px solid var(--line)' }}>
         <div className="max-w-screen-xl mx-auto">
-          <div className="py-8 flex flex-wrap gap-x-8 gap-y-3">
+          <div className="py-8 flex flex-wrap justify-center gap-x-8 gap-y-3">
             {sections.map((s) => (
               <button
                 key={s.id}
@@ -189,14 +217,35 @@ export default function Index() {
       <div className="px-6 md:px-16 lg:px-24">
         <div className="max-w-screen-xl mx-auto">
           {sectionTexts.map((sec) => (
-            <section key={sec.id} className="content-section">
+            <section key={sec.id} className="content-section" style={{ overflow: 'hidden' }}>
               <span className="section-label">{sec.year}</span>
               <h2 className="section-title">{sec.title}</h2>
+
+              {sec.photo && (
+                <div
+                  onClick={() => setLightbox({ src: sec.photo!, caption: sec.photoCaption || '' })}
+                  style={{ float: 'right', marginLeft: '32px', marginBottom: '16px', width: '220px', cursor: 'zoom-in' }}
+                >
+                  <img
+                    src={sec.photo}
+                    alt={sec.photoCaption || ''}
+                    style={{ width: '100%', display: 'block', filter: 'grayscale(10%) contrast(1.05)' }}
+                  />
+                  {sec.photoCaption && (
+                    <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500, fontSize: '0.68rem', letterSpacing: '0.06em', color: 'var(--ink-muted)', marginTop: '6px', fontStyle: 'italic' }}>
+                      {sec.photoCaption}
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="space-y-5">
                 {sec.paragraphs.map((p, i) => (
                   <p key={i} className="body-text">{p}</p>
                 ))}
               </div>
+              <div style={{ clear: 'both' }} />
+
               <button
                 onClick={() => navigate(sec.path)}
                 className="mt-8 inline-flex items-center gap-3 group"

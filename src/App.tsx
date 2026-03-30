@@ -11,6 +11,7 @@ import Sugыsh from "./pages/Sugыsh";
 import Moabit from "./pages/Moabit";
 import Jalilcheler from "./pages/Jalilcheler";
 import Bugengekon from "./pages/Bugengekon";
+import Ijat from "./pages/Ijat";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/moabit" element={<Moabit />} />
           <Route path="/jalilcheler" element={<Jalilcheler />} />
           <Route path="/bugengekon" element={<Bugengekon />} />
+          <Route path="/ijat" element={<Ijat />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

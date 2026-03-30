@@ -9,6 +9,7 @@ const navItems = [
   { label: 'Сугыш юлы', path: '/sugыsh' },
   { label: 'Моабит', path: '/moabit' },
   { label: 'Җәлилчеләр', path: '/jalilcheler' },
+  { label: 'Иҗат', path: '/ijat' },
   { label: 'Бүгенге көн', path: '/bugengekon' },
 ];
 
