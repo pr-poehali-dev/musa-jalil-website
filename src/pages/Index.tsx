@@ -8,6 +8,7 @@ const sections = [
   { id: 'sugыш', path: '/sugыsh', title: 'Сугыш юлы' },
   { id: 'moabit', path: '/moabit', title: 'Моабит дәфтәрләре' },
   { id: 'jalilcheler', path: '/jalilcheler', title: 'Җәлилчеләр' },
+  { id: 'bugengekon', path: '/bugengekon', title: 'Бүгенге көн' },
 ];
 
 const sectionTexts = [
@@ -35,7 +36,7 @@ const sectionTexts = [
   },
   {
     id: 'sugыш',
-    path: '/sugыsh',
+    path: '/sugыш',
     title: 'Сугыш юлы',
     year: '1941–1942',
     paragraphs: [
@@ -66,6 +67,17 @@ const sectionTexts = [
       'Алар батырлык белән үлделәр, дошманга баш иймәделәр. Аларның данлы исемнәре татар халкының мәңгелек горурлыгы булып тора.',
     ],
   },
+  {
+    id: 'bugengekon',
+    path: '/bugengekon',
+    title: 'Бүгенге көн',
+    year: 'Хәтер',
+    paragraphs: [
+      'Муса Җәлил исеме бүгенге көндә дә татар халкының күңелендә яши. Аның шигырьләре мәктәпләрдә өйрәнелә, музейларда саклана, театрларда куела.',
+      'Казанда Муса Җәлилгә багышланган мемориаль музей эшли. Шагыйрьнең исемен йөртүче урамнар, мәктәпләр, мәдәни учреждениеләр Татарстанда гына түгел, бөтен дөньяда таралган.',
+      'Моабит дәфтәрләре бүгенге көндә дә укучыларны тетрәтә. Аның батырлыгы — киләчәк буыннар өчен рухи мирас.',
+    ],
+  },
 ];
 
 export default function Index() {
@@ -76,10 +88,10 @@ export default function Index() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="pt-32 pb-20 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
+      <section className="pt-32 pb-20 px-6 md:px-16 lg:px-24">
+        <div className="max-w-screen-xl mx-auto">
           {/* Portrait */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-10">
             <div className="portrait-circle">
               <img
                 src="https://cdn.poehali.dev/files/c42d3da8-7051-4d10-965d-585ff996f7a1.jpeg"
@@ -89,20 +101,28 @@ export default function Index() {
           </div>
 
           {/* Subtitle */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-4">
             <span style={{
               fontFamily: 'Montserrat, sans-serif',
-              fontWeight: 700,
-              fontSize: '1rem',
-              letterSpacing: '0.3em',
+              fontWeight: 800,
+              fontSize: 'clamp(1rem, 2.5vw, 1.6rem)',
+              letterSpacing: '0.25em',
               textTransform: 'uppercase',
               color: 'var(--ink-muted)',
+              display: 'block',
             }}>ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:</span>
           </div>
 
-          {/* Name */}
-          <h1 className="text-center font-black tracking-tight text-gray-900 leading-none mb-4"
-              style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.03em', fontSize: 'clamp(3.5rem, 12vw, 9rem)' }}>
+          {/* Name — fits 1 line via viewport-based clamp */}
+          <h1
+            className="text-center font-black text-gray-900 leading-none mb-4"
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              letterSpacing: '-0.03em',
+              fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+              whiteSpace: 'nowrap',
+            }}
+          >
             МУСА ҖӘЛИЛ
           </h1>
 
@@ -120,12 +140,12 @@ export default function Index() {
             <span className="divider-muted block" />
           </div>
 
-          {/* Quote — новое оформление */}
-          <div className="max-w-xl mx-auto text-center" style={{ padding: '32px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+          {/* Quote */}
+          <div className="max-w-2xl mx-auto text-center" style={{ padding: '32px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
             <p style={{
               fontFamily: 'Montserrat, sans-serif',
               fontWeight: 300,
-              fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
               lineHeight: 1.6,
               color: 'var(--ink)',
               fontStyle: 'italic',
@@ -149,9 +169,9 @@ export default function Index() {
       </section>
 
       {/* ── SECTION NAV ── */}
-      <section className="px-6 md:px-12 pb-4" style={{ borderTop: '1px solid var(--line)' }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="py-8 flex flex-wrap gap-x-8 gap-y-2">
+      <section className="px-6 md:px-16 lg:px-24 pb-4" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="max-w-screen-xl mx-auto">
+          <div className="py-8 flex flex-wrap gap-x-8 gap-y-3">
             {sections.map((s) => (
               <button
                 key={s.id}
@@ -166,8 +186,8 @@ export default function Index() {
       </section>
 
       {/* ── CONTENT SECTIONS ── */}
-      <div className="px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
+      <div className="px-6 md:px-16 lg:px-24">
+        <div className="max-w-screen-xl mx-auto">
           {sectionTexts.map((sec) => (
             <section key={sec.id} className="content-section">
               <span className="section-label">{sec.year}</span>
@@ -180,7 +200,7 @@ export default function Index() {
               <button
                 onClick={() => navigate(sec.path)}
                 className="mt-8 inline-flex items-center gap-3 group"
-                style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink)', borderBottom: '1px solid var(--ink)', paddingBottom: '2px', background: 'none', border: 'none', cursor: 'pointer' }}
+                style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink)', background: 'none', border: 'none', cursor: 'pointer' }}
               >
                 <span style={{ borderBottom: '1px solid var(--ink)', paddingBottom: '2px' }}>Тулырак укырга</span>
                 <span style={{ display: 'inline-block', transition: 'transform 0.2s' }} className="group-hover:translate-x-1">→</span>
