@@ -1,238 +1,163 @@
-import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Icon from '@/components/ui/icon';
 
 const sections = [
+  { id: 'tormysh', path: '/tormysh', title: 'Тормыш юлы' },
+  { id: 'shakhsi', path: '/shakhsi', title: 'Шәхси тормышы' },
+  { id: 'sugыш', path: '/sugыsh', title: 'Сугыш юлы' },
+  { id: 'moabit', path: '/moabit', title: 'Моабит дәфтәрләре' },
+  { id: 'jalilcheler', path: '/jalilcheler', title: 'Җәлилчеләр' },
+];
+
+const sectionTexts = [
   {
     id: 'tormysh',
     path: '/tormysh',
     title: 'Тормыш юлы',
-    subtitle: 'Тормыш тарихы',
-    desc: 'Шагыйрьнең балачагы, яшьлеге, белем алуы һәм иҗади формалашуы',
-    icon: 'BookOpen',
-    iconBg: 'bg-jade-500/20',
-    iconColor: 'text-jade-400',
-    border: 'border-jade-500/20',
-    glowClass: 'glow-green',
     year: '1906–1941',
+    paragraphs: [
+      'Муса Җәлил 1906 елның 15 февралендә Ырынбур губернасының Мостафа авылында дөньяга килә. Алты яшендә әтисе аны авыл мәктәбенә бирә. Бу мәктәптә кечкенә Муса бер ел эчендә 4 еллык программаны үзләштерә.',
+      '1914 елда "Хөсәения" мәдрәсәсенә укырга керә. Габдулла Тукай шигырьләрен укып, ул беренче тапкыр әдәбиятны ача. Мәдрәсәдән соң Муса комсомол сафларына кушыла, шигырьләрен газеталарда бастыра башлый.',
+      '1927 елда Мәскәү дәүләт университетына укырга керә. Мәскәүдәге татар яшьләре арасында әдәби түгәрәк оештыра, Мәскәүдәге татар матбугатында мөхәррир булып эшли.',
+    ],
   },
   {
     id: 'shakhsi',
     path: '/shakhsi',
     title: 'Шәхси тормышы',
-    subtitle: 'Гаилә',
-    desc: 'Мусаның гаиләсе, мәхәббәте, якын кешеләре турында',
-    icon: 'Heart',
-    iconBg: 'bg-rose-500/20',
-    iconColor: 'text-rose-400',
-    border: 'border-rose-500/20',
-    glowClass: 'glow-coral',
-    year: 'Гаилә тарихы',
+    year: 'Гаилә',
+    paragraphs: [
+      'Муса Казанда яшәгән чорда Рахиля Сайфуллина белән таныша. Рахиля аның тормыш иптәше, терәге, иң якын кешесе булып кала. Аларның кызы Чулпан туа.',
+      'Фронтка китеп, Муса хатынына сагыну тулы хатлар яза. Моабит тоткынлыгыннан да ул гаиләсе турында уйлый — шигырьләрендә Чулпанга мөнәсәбәт сизелә.',
+      'Мусаның иң якын кешесе апасы Мәрьям була. Аңа ул 1915 елда ук бөек язучы булырга хыялланганы турында сөйли. Гаилә аның иҗатының нигезе, рухи таянычы.',
+    ],
   },
   {
     id: 'sugыш',
     path: '/sugыsh',
     title: 'Сугыш юлы',
-    subtitle: 'Сугыш һәм әсирлек',
-    desc: 'Икенче дөнья сугышы, фронт юлы, немец әсирлегенә эләгү',
-    icon: 'Sword',
-    iconBg: 'bg-ocean-500/20',
-    iconColor: 'text-ocean-400',
-    border: 'border-ocean-500/20',
-    glowClass: 'glow-blue',
     year: '1941–1942',
+    paragraphs: [
+      '1941 елда Бөек Ватан сугышы башлана. Муса Җәлил фронтка китә. Ул Волхов фронтында сугыша. 1942 елда авыр яраланганнан соң немецлар тарафыннан әсир алына.',
+      'Немецлар Мусаны Идел-Урал легионына кертергә тырышалар. Ләкин ул риваять буенча дошманга хезмәт итми. Гайнан Кормаш белән бергә яшерен оешма оештырырга тотына.',
+      'Яшерен оешма тоткынлар арасында антифашист агитация алып бара, побег планлаштыра. 1943 елда оешма ачыкланып, барлык членнары кулга алына.',
+    ],
   },
   {
     id: 'moabit',
     path: '/moabit',
     title: 'Моабит дәфтәрләре',
-    subtitle: 'Шигъри мирас',
-    desc: 'Моабит төрмәсендә язылган бөек шигырьләр — батырлык символы',
-    icon: 'PenLine',
-    iconBg: 'bg-amber-500/20',
-    iconColor: 'text-amber-400',
-    border: 'border-amber-500/20',
-    glowClass: 'glow-gold',
     year: '1942–1944',
+    paragraphs: [
+      'Берлиндагы Моабит төрмәсенә ябылып, Муса шигырь яза. Ул ике кечкенә дәфтәр тутыра — андагы 106 шигырь тоткынлык шартларында язылган. Бу шигырьләр — батырлык, мәхәббәт, ирек турында.',
+      'Дәфтәрләрне Муса тоткынлыкташ дусларына тапшыра. Алар сакларга сүз бирәләр. Сугыш беткәч, дәфтәрләр СССР-га кайтарыла.',
+      'Бу шигырьләр 1953 елда беренче тапкыр бастырыла. 1957 елда "Моабит дәфтәрләре" Ленин премиясенә лаек була. Бүгенге көндә бу — дөнья әдәбиятының алтын битләренең берсе.',
+    ],
   },
   {
     id: 'jalilcheler',
     path: '/jalilcheler',
     title: 'Җәлилчеләр',
-    subtitle: 'Батыр дуслар',
-    desc: 'Муса Җәлил белән бергә герой булган иптәшләре',
-    icon: 'Users',
-    iconBg: 'bg-violet-500/20',
-    iconColor: 'text-violet-400',
-    border: 'border-violet-500/20',
-    glowClass: 'glow-coral',
-    year: 'Герой дуслар',
+    year: 'Батырлар',
+    paragraphs: [
+      'Муса Джалил белән бергә яшерен оешмага кергән 11 батыр 1944 елның 25 августында Плетцензее төрмәсендә (Берлин) гильотинада башкарыла.',
+      'Алар арасында язучы Абдулла Алиш, Гайнан Кормаш, Фуат Булатов, Ахмет Симаев, Зиннат Хасанов, Сәлим Бухаров, Хиса Солтанов, Фоат Сайфельмулюков, Галимҗан Бассиров, Мухаммад Джалялов бар.',
+      'Алар батырлык белән үлделәр, дошманга баш иймәделәр. Аларның данлы исемнәре татар халкының мәңгелек горурлыгы булып тора.',
+    ],
   },
-];
-
-const stats = [
-  { value: '1906', label: 'Туган ел' },
-  { value: '106+', label: 'Шигырь' },
-  { value: '2', label: 'Дәфтәр' },
-  { value: '1956', label: 'Герой исеме' },
 ];
 
 export default function Index() {
   const navigate = useNavigate();
-  const revealRefs = useRef<HTMLElement[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.1 }
-    );
-    revealRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const addReveal = (el: HTMLElement | null) => {
-    if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
-  };
 
   return (
-    <div className="min-h-screen hero-bg">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-16 pb-8 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-jade-500/5 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-ocean-500/5 blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-
-          {/* Portrait — large */}
-          <div
-            className="relative mb-8 opacity-0 animate-scale-in"
-            style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
-          >
-            <div className="portrait-frame">
+      {/* ── HERO ── */}
+      <section className="pt-32 pb-20 px-6 md:px-12">
+        <div className="max-w-3xl mx-auto">
+          {/* Portrait */}
+          <div className="flex justify-center mb-12">
+            <div className="portrait-circle">
               <img
                 src="https://cdn.poehali.dev/files/c42d3da8-7051-4d10-965d-585ff996f7a1.jpeg"
                 alt="Муса Җәлил"
-                className="portrait-img"
               />
             </div>
-            <div className="portrait-ring" />
           </div>
 
-          {/* Label above name */}
-          <div
-            className="opacity-0 animate-fade-up mb-3"
-            style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
-          >
-            <span className="font-heading text-sm md:text-base font-semibold tracking-[0.18em] text-white/55 uppercase">
-              ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:
-            </span>
+          {/* Subtitle */}
+          <div className="text-center mb-4">
+            <span className="hero-subtitle">ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:</span>
           </div>
 
-          {/* Main title */}
-          <h1
-            className="opacity-0 animate-fade-up font-heading font-black text-6xl md:text-8xl lg:text-9xl tracking-tight mb-2 gradient-text"
-            style={{ animationDelay: '0.65s', animationFillMode: 'forwards' }}
-          >
+          {/* Name */}
+          <h1 className="text-center font-black text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 leading-none mb-4"
+              style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.03em' }}>
             МУСА ҖӘЛИЛ
           </h1>
 
-          {/* Years line */}
-          <div
-            className="flex items-center gap-3 mb-8 opacity-0 animate-fade-up"
-            style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}
-          >
-            <span className="w-12 h-px bg-gradient-to-r from-transparent to-jade-500/50" />
-            <span className="font-heading text-sm font-semibold text-white/35 tracking-widest">1906 — 1944</span>
-            <span className="w-12 h-px bg-gradient-to-l from-transparent to-jade-500/50" />
+          {/* Years */}
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className="divider-muted block" />
+            <span className="hero-subtitle">1906 — 1944</span>
+            <span className="divider-muted block" />
           </div>
 
           {/* Quote */}
-          <div
-            className="glass-card rounded-2xl px-8 py-6 max-w-2xl mx-auto relative overflow-hidden opacity-0 animate-fade-up"
-            style={{ animationDelay: '0.95s', animationFillMode: 'forwards' }}
-          >
-            <blockquote className="font-heading font-semibold text-lg md:text-xl text-white/80 leading-relaxed">
-              Гомерем минем моңлы бер җыр иде,
-              <br />
+          <div className="pull-quote max-w-xl mx-auto">
+            <p>
+              Гомерем минем моңлы бер җыр иде,<br />
               Үлемем дә яңрар җыр булып...
-            </blockquote>
-            <div className="mt-3 flex items-center gap-2">
-              <div className="w-6 h-px bg-jade-500/50" />
-              <span className="font-heading text-sm text-white/35 font-medium">Муса Җәлил</span>
-            </div>
-          </div>
-
-          {/* Scroll cue */}
-          <div
-            className="mt-12 opacity-0 animate-fade-up"
-            style={{ animationDelay: '1.1s', animationFillMode: 'forwards' }}
-          >
-            <button
-              onClick={() => document.getElementById('sections')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex flex-col items-center gap-2 text-white/25 hover:text-jade-400 transition-colors group"
-            >
-              <div className="w-6 h-10 border-2 border-current rounded-full flex items-start justify-center p-1 group-hover:border-jade-400 transition-colors">
-                <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
-              </div>
-            </button>
+            </p>
+            <cite>Муса Җәлил</cite>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section ref={addReveal} className="reveal pb-8 px-4">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <div key={i} className="glass-card rounded-2xl p-5 text-center border border-white/5">
-              <div className="font-heading font-black text-3xl md:text-4xl gradient-text mb-1">{s.value}</div>
-              <div className="font-heading text-xs font-semibold text-white/40 uppercase tracking-wider">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION CARDS */}
-      <section id="sections" className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sections.map((section, i) => (
-              <div
-                key={section.id}
-                ref={addReveal}
-                className={`reveal section-card glass-card rounded-2xl p-6 cursor-pointer group ${section.border} ${section.glowClass}`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
-                onClick={() => navigate(section.path)}
+      {/* ── SECTION NAV ── */}
+      <section className="px-6 md:px-12 pb-4" style={{ borderTop: '1px solid var(--line)' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="py-8 flex flex-wrap gap-x-8 gap-y-2">
+            {sections.map((s) => (
+              <button
+                key={s.id}
+                className="section-nav-item"
+                onClick={() => navigate(s.path)}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-xl ${section.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                    <Icon name={section.icon} size={22} className={section.iconColor} />
-                  </div>
-                  <span className={`font-heading text-xs font-semibold ${section.iconColor} opacity-60`}>
-                    {section.year}
-                  </span>
-                </div>
-                <h3 className="font-heading font-bold text-xl text-white mb-1">{section.title}</h3>
-                <p className={`font-heading text-xs ${section.iconColor} font-semibold mb-3 uppercase tracking-wider opacity-70`}>
-                  {section.subtitle}
-                </p>
-                <p className="font-body text-white/55 text-sm leading-relaxed">{section.desc}</p>
-                <div className={`mt-5 flex items-center gap-2 ${section.iconColor} group-hover:gap-3 transition-all`}>
-                  <span className="font-heading text-sm font-bold">Укырга</span>
-                  <Icon name="ArrowRight" size={16} />
-                </div>
-              </div>
+                {s.title}
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── CONTENT SECTIONS ── */}
+      <div className="px-6 md:px-12">
+        <div className="max-w-3xl mx-auto">
+          {sectionTexts.map((sec) => (
+            <section key={sec.id} className="content-section">
+              <span className="section-label">{sec.year}</span>
+              <h2 className="section-title">{sec.title}</h2>
+              <div className="space-y-5">
+                {sec.paragraphs.map((p, i) => (
+                  <p key={i} className="body-text">{p}</p>
+                ))}
+              </div>
+              <button
+                onClick={() => navigate(sec.path)}
+                className="mt-8 inline-flex items-center gap-3 group"
+                style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink)', borderBottom: '1px solid var(--ink)', paddingBottom: '2px', background: 'none', border: 'none', cursor: 'pointer' }}
+              >
+                <span style={{ borderBottom: '1px solid var(--ink)', paddingBottom: '2px' }}>Тулырак укырга</span>
+                <span style={{ display: 'inline-block', transition: 'transform 0.2s' }} className="group-hover:translate-x-1">→</span>
+              </button>
+            </section>
+          ))}
+        </div>
+      </div>
 
       <Footer />
     </div>

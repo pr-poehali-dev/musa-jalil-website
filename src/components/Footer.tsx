@@ -4,15 +4,19 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="border-t border-white/5 py-12 mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer style={{ borderTop: '1px solid var(--line)', paddingTop: '48px', paddingBottom: '48px', marginTop: '80px' }}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <p className="font-heading font-black text-white text-sm tracking-[0.12em] uppercase">Муса Җәлил</p>
-            <p className="font-heading text-xs text-white/35 font-medium mt-0.5">1906 – 1944</p>
+            <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--ink)' }}>
+              Муса Җәлил
+            </p>
+            <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginTop: '4px' }}>
+              1906 – 1944
+            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             {[
               { label: 'Тормыш юлы', path: '/tormysh' },
               { label: 'Шәхси тормыш', path: '/shakhsi' },
@@ -23,7 +27,9 @@ export default function Footer() {
               <button
                 key={item.path}
                 onClick={() => navigate(item.path)}
-                className="font-heading font-semibold text-white/45 hover:text-jade-400 transition-colors text-xs uppercase tracking-wider"
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--ink)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--ink-muted)')}
+                style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, transition: 'color 0.2s' }}
               >
                 {item.label}
               </button>
@@ -31,12 +37,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="font-heading font-semibold text-white/20 text-xs">
+        <div style={{ borderTop: '1px solid var(--line)', marginTop: '32px', paddingTop: '24px' }}>
+          <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500, fontSize: '0.68rem', letterSpacing: '0.05em', color: 'var(--ink-muted)' }}>
             © 2026 — Татар әдәбиятын өйрәнү һәм үстерү проекты. Лилия Кәримова.
-          </p>
-          <p className="font-heading font-semibold text-white/15 text-xs tracking-widest">
-            "Гомерем минем моңлы бер җыр иде..."
           </p>
         </div>
       </div>
