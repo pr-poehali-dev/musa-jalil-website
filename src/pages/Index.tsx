@@ -89,30 +89,61 @@ export default function Index() {
           </div>
 
           {/* Subtitle */}
-          <div className="text-center mb-4">
-            <span className="hero-subtitle">ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:</span>
+          <div className="text-center mb-6">
+            <span style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 700,
+              fontSize: '1rem',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              color: 'var(--ink-muted)',
+            }}>ҮЗ ХАЛКЫН ДАНЛАГАН ТАТАРЛАР:</span>
           </div>
 
           {/* Name */}
-          <h1 className="text-center font-black text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 leading-none mb-4"
-              style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.03em' }}>
+          <h1 className="text-center font-black tracking-tight text-gray-900 leading-none mb-4"
+              style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.03em', fontSize: 'clamp(3.5rem, 12vw, 9rem)' }}>
             МУСА ҖӘЛИЛ
           </h1>
 
           {/* Years */}
-          <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="flex items-center justify-center gap-4 mb-16">
             <span className="divider-muted block" />
-            <span className="hero-subtitle">1906 — 1944</span>
+            <span style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--ink-muted)',
+            }}>1906 — 1944</span>
             <span className="divider-muted block" />
           </div>
 
-          {/* Quote */}
-          <div className="pull-quote max-w-xl mx-auto">
-            <p>
+          {/* Quote — новое оформление */}
+          <div className="max-w-xl mx-auto text-center" style={{ padding: '32px 0', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+            <p style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 300,
+              fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+              lineHeight: 1.6,
+              color: 'var(--ink)',
+              fontStyle: 'italic',
+              letterSpacing: '0.01em',
+              textAlign: 'center',
+              marginBottom: '16px',
+            }}>
               Гомерем минем моңлы бер җыр иде,<br />
               Үлемем дә яңрар җыр булып...
             </p>
-            <cite>Муса Җәлил</cite>
+            <span style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 700,
+              fontSize: '0.7rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--ink-muted)',
+            }}>— Муса Җәлил</span>
           </div>
         </div>
       </section>

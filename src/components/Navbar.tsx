@@ -34,13 +34,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           <button
             onClick={() => navigate('/')}
             style={{
               fontFamily: 'Montserrat, sans-serif',
               fontWeight: 800,
-              fontSize: '0.8rem',
+              fontSize: '1rem',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               color: 'var(--ink)',
@@ -60,9 +60,9 @@ export default function Navbar() {
                 className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
                 style={{
                   fontFamily: 'Montserrat, sans-serif',
-                  fontWeight: 600,
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.1em',
+                  fontWeight: 700,
+                  fontSize: '0.85rem',
+                  letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   color: location.pathname === item.path ? 'var(--ink)' : 'var(--ink-muted)',
                   background: 'none',
