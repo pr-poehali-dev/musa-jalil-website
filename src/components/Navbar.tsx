@@ -6,7 +6,7 @@ const navItems = [
   { label: 'Баш бит', path: '/' },
   { label: 'Тормыш юлы', path: '/tormysh' },
   { label: 'Шәхси тормыш', path: '/shakhsi' },
-  { label: 'Сугыш юлы', path: '/sugыsh' },
+  { label: 'Сугыш юлы', path: '/sugish' },
   { label: 'Моабит', path: '/moabit' },
   { label: 'Җәлилчеләр', path: '/jalilcheler' },
   { label: 'Иҗат', path: '/ijat' },

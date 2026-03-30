@@ -7,7 +7,7 @@ import Lightbox from '@/components/Lightbox';
 const sections = [
   { id: 'tormysh', path: '/tormysh', title: 'Тормыш юлы' },
   { id: 'shakhsi', path: '/shakhsi', title: 'Шəхси тормышы' },
-  { id: 'sugыш', path: '/sugыш', title: 'Сугыш юлы' },
+  { id: 'sugish', path: '/sugish', title: 'Сугыш юлы' },
   { id: 'moabit', path: '/moabit', title: 'Моабит дəфтəрлəре' },
   { id: 'jalilcheler', path: '/jalilcheler', title: 'Җəлилчелəр' },
   { id: 'ijat', path: '/ijat', title: 'Иҗат' },
@@ -42,8 +42,8 @@ const sectionTexts = [
     ],
   },
   {
-    id: 'sugыш',
-    path: '/sugыш',
+    id: 'sugish',
+    path: '/sugish',
     title: 'Сугыш юлы',
     year: '1941–1942',
     photo: null,

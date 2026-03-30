@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Tormysh from "./pages/Tormysh";
 import Shakhsi from "./pages/Shakhsi";
-import Sugыsh from "./pages/Sugыsh";
+import Sugish from "./pages/Sugish";
 import Moabit from "./pages/Moabit";
 import Jalilcheler from "./pages/Jalilcheler";
 import Bugengekon from "./pages/Bugengekon";
@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/tormysh" element={<Tormysh />} />
           <Route path="/shakhsi" element={<Shakhsi />} />
-          <Route path="/sugыsh" element={<Sugыsh />} />
+          <Route path="/sugish" element={<Sugish />} />
           <Route path="/moabit" element={<Moabit />} />
           <Route path="/jalilcheler" element={<Jalilcheler />} />
           <Route path="/bugengekon" element={<Bugengekon />} />
