@@ -183,8 +183,8 @@ export default function Sugыsh() {
       <section ref={addReveal} className="reveal pb-24 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="glass-card-blue rounded-3xl p-8 md:p-12 border border-ocean-500/20">
-            <div className="quote-mark text-ocean-400 text-6xl font-display leading-none mb-4">"</div>
-            <blockquote className="font-display italic text-2xl md:text-3xl text-white/85 leading-relaxed mb-6">
+            <div className="quote-mark text-ocean-400 text-6xl leading-none mb-4">"</div>
+            <blockquote className="font-heading font-semibold text-2xl md:text-3xl text-white/85 leading-relaxed mb-6">
               Мин яшәдем, дошманга баш бирмәдем,
               <br />
               Үлгәндә дә яшим — шигырьдә...

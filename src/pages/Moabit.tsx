@@ -162,7 +162,7 @@ export default function Moabit() {
                   <h3 className={`font-heading font-bold text-lg mb-4 ${cls.split(' ')[2]}`}>{poem.title}</h3>
                   <div className="space-y-1 mb-5">
                     {poem.lines.map((line, j) => (
-                      <p key={j} className="font-display italic text-white/75 text-sm leading-relaxed">
+                      <p key={j} className="font-heading font-medium text-white/75 text-sm leading-relaxed">
                         {line}
                       </p>
                     ))}

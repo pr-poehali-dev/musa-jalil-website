@@ -273,14 +273,14 @@ export default function Jalilcheler() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="glass-card rounded-3xl p-8 md:p-12 border border-violet-500/20">
             <Icon name="Flame" size={32} className="text-violet-400 mx-auto mb-4" />
-            <blockquote className="font-display italic text-xl md:text-2xl text-white/85 leading-relaxed mb-6">
+            <blockquote className="font-heading font-semibold text-xl md:text-2xl text-white/85 leading-relaxed mb-6">
               Алар үлде, ләкин аларның исеме үлмәде.
               <br />
               Алар — татар халкының мәңгелек горурлыгы.
             </blockquote>
             <div className="flex items-center justify-center gap-3">
               <div className="w-8 h-px bg-violet-500/50" />
-              <span className="font-body text-sm text-white/40">Хәтер сакла</span>
+              <span className="font-heading font-bold text-xs text-white/35 uppercase tracking-widest">Хәтер сакла</span>
               <div className="w-8 h-px bg-violet-500/50" />
             </div>
           </div>

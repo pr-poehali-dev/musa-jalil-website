@@ -163,8 +163,8 @@ export default function Shakhsi() {
               ул хатлар язарга тырышкан — ниһаять аларны китерергә мөмкинлек тапканда.
             </p>
             <div className="glass-card rounded-xl p-5 border border-rose-500/10">
-              <div className="quote-mark text-rose-400 text-4xl font-display leading-none mb-2">"</div>
-              <p className="font-display italic text-lg text-white/80 leading-relaxed">
+              <div className="quote-mark text-rose-400 text-4xl leading-none mb-2">"</div>
+              <p className="font-heading font-semibold text-lg text-white/80 leading-relaxed">
                 Сине, Чулпаным, сагынам,
                 <br />
                 Күзләреңне, хисләреңне...

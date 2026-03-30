@@ -35,17 +35,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo — text only */}
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 group"
+            className="font-heading font-black text-sm tracking-[0.12em] text-white/80 hover:text-jade-400 transition-colors uppercase"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-jade-500 to-ocean-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-              <span className="text-white text-xs font-bold font-heading">МҖ</span>
-            </div>
-            <span className="hidden sm:block font-heading font-bold text-sm text-white/90 group-hover:text-jade-400 transition-colors">
-              Муса Җәлил
-            </span>
+            Муса Җәлил
           </button>
 
           {/* Desktop nav */}
@@ -54,10 +49,10 @@ export default function Navbar() {
               <button
                 key={item.path}
                 onClick={() => navigate(item.path)}
-                className={`nav-link px-3 py-2 text-sm font-body font-medium rounded-lg transition-all duration-200 ${
+                className={`nav-link px-3 py-2 text-sm font-heading font-semibold rounded-lg transition-all duration-200 ${
                   location.pathname === item.path
                     ? 'text-jade-400 active'
-                    : 'text-white/70 hover:text-white hover:bg-white/5'
+                    : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {item.label}
@@ -77,16 +72,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden nav-blur border-t border-white/5 mobile-menu-enter">
+        <div className="md:hidden nav-blur border-t border-white/5">
           <div className="px-4 py-3 flex flex-col gap-1">
             {navItems.map((item) => (
               <button
                 key={item.path}
                 onClick={() => navigate(item.path)}
-                className={`text-left px-4 py-3 rounded-lg text-sm font-body font-medium transition-all ${
+                className={`text-left px-4 py-3 rounded-lg text-sm font-heading font-semibold transition-all ${
                   location.pathname === item.path
                     ? 'bg-jade-500/10 text-jade-400 border border-jade-500/20'
-                    : 'text-white/70 hover:text-white hover:bg-white/5'
+                    : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {item.label}
