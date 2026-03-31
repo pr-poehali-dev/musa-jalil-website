@@ -20,7 +20,7 @@ export default function Footer() {
             {[
               { label: 'Тормыш юлы', path: '/tormysh' },
               { label: 'Шәхси тормыш', path: '/shakhsi' },
-              { label: 'Сугыш юлы', path: '/sugыsh' },
+              { label: 'Сугыш юлы', path: '/sugish' },
               { label: 'Моабит', path: '/moabit' },
               { label: 'Җәлилчеләр', path: '/jalilcheler' },
             ].map((item) => (
