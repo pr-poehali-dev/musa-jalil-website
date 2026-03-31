@@ -5,34 +5,34 @@ import Lightbox from '@/components/Lightbox';
 
 const photos = [
   {
-    src: 'https://cdn.poehali.dev/files/d68d78be-770b-4649-a285-81de771fc333.jpg',
-    caption: 'Муса Җəлил хатыны Əминə белəн',
-    side: 'right',
-    width: 220,
-  },
-  {
-    src: 'https://cdn.poehali.dev/files/9b70f25f-8636-4b1e-b58a-236bd2fd14d8.jpg',
-    caption: 'Муса Җəлил кызы Чулпан белəн',
-    side: 'left',
-    width: 200,
-  },
-  {
-    src: 'https://cdn.poehali.dev/files/b343e84c-9b36-43b6-9334-3038b2b3791b.jpg',
-    caption: 'Мари Жан, Əминə həм Чулпан Җəлиловалар, Андре Тиммерманс',
-    side: 'right',
-    width: 280,
-  },
-  {
-    src: 'https://cdn.poehali.dev/files/da871140-68ad-46dc-a7a9-a276b45d9e7d.jpg',
-    caption: 'Муса Җəлил кызы Чулпан белəн',
-    side: 'left',
-    width: 220,
-  },
-  {
-    src: 'https://cdn.poehali.dev/files/d04c9221-3805-4170-8427-4bb947117749.jpg',
-    caption: 'Муса Җəлил кызы Чулпан белəн',
+    src: 'https://cdn.poehali.dev/files/4cef3a33-fd57-4fb2-92c5-7ccc9bf04b2c.jpg',
+    caption: 'Муса Җәлил хатыны Әминә белән',
     side: 'right',
     width: 200,
+  },
+  {
+    src: 'https://cdn.poehali.dev/files/cffee8fb-ea33-4b75-98b4-9a67f2907871.jpg',
+    caption: 'Муса Җәлил кызы Чулпан белән',
+    side: 'left',
+    width: 180,
+  },
+  {
+    src: 'https://cdn.poehali.dev/files/39258f0d-73b7-41b2-aea3-df01207570d5.jpg',
+    caption: 'Мари Жан, Әминә һәм Чулпан Җәлиловалар, Андре Тиммерманс',
+    side: 'right',
+    width: 260,
+  },
+  {
+    src: 'https://cdn.poehali.dev/files/3532b586-ff70-4a2e-b137-cd023075d905.jpg',
+    caption: 'Муса Җәлил кызы Чулпан белән',
+    side: 'left',
+    width: 190,
+  },
+  {
+    src: 'https://cdn.poehali.dev/files/3d029047-d7c0-42e2-96d2-c7678a9d204a.jpg',
+    caption: 'Муса Җәлил кызы Чулпан белән',
+    side: 'right',
+    width: 210,
   },
 ];
 
@@ -49,9 +49,9 @@ export default function Shakhsi() {
 
       <div className="max-w-screen-xl mx-auto px-6 md:px-16 lg:px-24 pt-28 pb-24">
         <span className="section-label">Икенче бүлек</span>
-        <h1 className="section-title">Шəхси тормышы</h1>
+        <h1 className="section-title">Шәхси тормышы</h1>
 
-        {/* Блок 1: с фото справа */}
+        {/* Блок 1: фото 1 справа — текст */}
         <div style={{ overflow: 'hidden', marginBottom: '48px' }}>
           <div
             onClick={() => setLightbox(photos[0])}
@@ -68,15 +68,15 @@ export default function Shakhsi() {
           </div>
 
           <p className="body-text">
-            1936 елның җəендə Муса икътисад техникумын тəмамлаган Əминə Сəйфуллинага өйлəнгəч, аның ике никахы həм ике баласы – Альберт белəн Люция була. 1937 елның апрелендə Муса Җəлилнең кече кызы Чулпан туа.
+            1936 елның җәендә Муса икътисад техникумын тәмамлаган Әминә Сәйфуллинага өйләнгәч, аның ике никахы һәм ике баласы – Альберт белән Люция була. 1937 елның апрелендә Муса Җәлилнең кече кызы Чулпан туа.
           </p>
           <p className="body-text" style={{ marginTop: '1.2em' }}>
-            Шагыйрь хатыны үзенең истəлеклəрендə: «Сугыш алдындагы алты елны, Мусаның иң актив иҗат елларын, без бик тату яшəдек. Кызыбыз Чулпан бик куандыра иде. Безнең бəхетнең чиге юк кебек тоелды. Җəлил нечкə күңелле, сизгер иде. Ул шат күңелле, арымый-талмый көлəргə, шаяртырга, күңелле компаниялəр, озын кичке əңгəмəлəр сөйлəргə ярата иде. Назлы, йомшак, ачык күңелле булса да, тигез, тыныч, даими була белə иде», — дип яза.
+            Шагыйрь хатыны үзенең истәлекләрендә: «Сугыш алдындагы алты елны, Мусаның иң актив иҗат елларын, без бик тату яшәдек. Кызыбыз Чулпан бик куандыра иде. Безнең бәхетнең чиге юк кебек тоелды. Җәлил нечкә күңелле, сизгер иде. Ул шат күңелле, арымый-талмый көләргә, шаяртырга, күңелле компанияләр, озын кичке әңгәмәләр сөйләргә ярата иде. Назлы, йомшак, ачык күңелле булса да, тигез, тыныч, даими була белә иде», — дип яза.
           </p>
           <div style={{ clear: 'both' }} />
         </div>
 
-        {/* Блок 2: с фото слева */}
+        {/* Блок 2: фото 2 слева + фото 4 слева */}
         <div style={{ overflow: 'hidden', borderTop: '1px solid var(--line)', paddingTop: '48px', marginBottom: '48px' }}>
           <div
             onClick={() => setLightbox(photos[1])}
@@ -107,27 +107,13 @@ export default function Shakhsi() {
           </div>
 
           <p className="body-text">
-            Муса Чулпан кызын бик яраткан. Сугышта булган чакта да, Моабит тоткынлыгында да кызын уйлаган. Аны хыялланып сагынган. Шигырьлəрендə кызына мөнəсəбəт сизелə — ул аның өчен яшəүнең мəгънəсе.
+            Муса Чулпан кызын бик яраткан. Сугышта булган чакта да, Моабит тоткынлыгында да кызын уйлаган. Аны хыялланып сагынган. Шигырьләрендә кызына мөнәсәбәт сизелә — ул аның өчен яшәүнең мәгънәсе.
           </p>
           <div style={{ clear: 'both' }} />
         </div>
 
-        {/* Блок 3: фото справа + слева */}
+        {/* Блок 3: фото 3 справа + фото 5 справа */}
         <div style={{ overflow: 'hidden', borderTop: '1px solid var(--line)', paddingTop: '48px', marginBottom: '48px' }}>
-          <div
-            onClick={() => setLightbox(photos[2])}
-            style={{ float: 'right', marginLeft: '32px', marginBottom: '16px', width: `${photos[2].width}px`, cursor: 'zoom-in' }}
-          >
-            <img
-              src={photos[2].src}
-              alt={photos[2].caption}
-              style={{ width: '100%', display: 'block', filter: 'grayscale(10%) contrast(1.05)' }}
-            />
-            <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500, fontSize: '0.68rem', letterSpacing: '0.06em', color: 'var(--ink-muted)', marginTop: '6px', fontStyle: 'italic' }}>
-              {photos[2].caption}
-            </p>
-          </div>
-
           <div
             onClick={() => setLightbox(photos[4])}
             style={{ float: 'right', marginLeft: '32px', marginBottom: '16px', width: `${photos[4].width}px`, cursor: 'zoom-in' }}
@@ -142,11 +128,25 @@ export default function Shakhsi() {
             </p>
           </div>
 
+          <div
+            onClick={() => setLightbox(photos[2])}
+            style={{ float: 'right', marginLeft: '32px', marginBottom: '16px', width: `${photos[2].width}px`, cursor: 'zoom-in' }}
+          >
+            <img
+              src={photos[2].src}
+              alt={photos[2].caption}
+              style={{ width: '100%', display: 'block', filter: 'grayscale(10%) contrast(1.05)' }}
+            />
+            <p style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 500, fontSize: '0.68rem', letterSpacing: '0.06em', color: 'var(--ink-muted)', marginTop: '6px', fontStyle: 'italic' }}>
+              {photos[2].caption}
+            </p>
+          </div>
+
           <p className="body-text">
-            Муса Казанда яшəгəн чорда Əминə Сəйфуллина белəн таныша. Əминə аның тормыш иптəше, терəге, иң якын кешесе булып кала. Муса фронтка киткəч, ул хатыны белəн сагыну хатлары алышкан. Фронттагы хатлар — назлы сагыну тулы.
+            Муса Казанда яшәгән чорда Әминә Сәйфуллина белән таныша. Әминә аның тормыш иптәше, терәге, иң якын кешесе булып кала. Муса фронтка киткәч, ул хатыны белән сагыну хатлары алышкан. Фронттагы хатлар — назлы сагыну тулы.
           </p>
           <p className="body-text" style={{ marginTop: '1.2em' }}>
-            Аның иң якын кешесе апасы Мəрьям була. Аңа ул 1915 елда ук язучы булырга хыялланганы турында сөйли. Апасы аны аңлаган, хупланы. Гаилə аның иҗатының нигезе, рухи таянычы булды.
+            Аның иң якын кешесе апасы Мәрьям була. Аңа ул 1915 елда ук язучы булырга хыялланганы турында сөйли. Апасы аны аңлаган, хупланы. Гаилә аның иҗатының нигезе, рухи таянычы булды.
           </p>
           <div style={{ clear: 'both' }} />
         </div>

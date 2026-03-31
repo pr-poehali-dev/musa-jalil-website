@@ -106,7 +106,7 @@ export default function Navbar() {
                   border: 'none',
                   borderBottom: '1px solid var(--line)',
                   cursor: 'pointer',
-                  textAlign: 'left',
+                  textAlign: 'center',
                   padding: '12px 0',
                 }}
               >
